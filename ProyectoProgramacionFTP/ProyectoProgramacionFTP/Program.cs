@@ -6,28 +6,23 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-
 namespace ConsoleApp1
+{
 
-    public class SimpleFileCopy
+    class Program
     {
         static void Main()
         {
             MoverArchivosFTP();
         }
 
-        public static void CrearExcelPrueba()
-        {
-            string parthFile = AppDomain.CurrentDomain.BaseDirectory + "prueba_1.csv";
-
-        }
-
         //Este Metodo lo que hace es mover los archivos 
         public static void MoverArchivosFTP()
         {
+
             string NombreArchivo = "prueba_1.csv";
-            string CarpOrigen = @"C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\archivos\archivoCVS";
-            string CarpDestino = @"C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\archivos";
+            string CarpOrigen = @"C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\archivosCSV";
+            string CarpDestino = @"C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\archivos\archivoXML";
             string sourceFile = System.IO.Path.Combine(CarpOrigen, NombreArchivo);
             string destFile = System.IO.Path.Combine(CarpDestino, NombreArchivo);
 
@@ -39,8 +34,10 @@ namespace ConsoleApp1
             {
                 string[] files = System.IO.Directory.GetFiles(CarpOrigen);
 
+                // Copy the files and overwrite destination files if they already exist.
                 foreach (string s in files)
                 {
+                    // Use static Path methods to extract only the file name from the path.
                     Thread.Sleep(600);
                     NombreArchivo = System.IO.Path.GetFileName(s);
                     destFile = System.IO.Path.Combine(CarpDestino, NombreArchivo);

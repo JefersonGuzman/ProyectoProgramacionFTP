@@ -4,3 +4,9 @@ C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\ProyectoProgramacionF
 C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.csprojAssemblyReference.cache
 C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.exe
 C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.pdb
+C:\Users\Windows\Desktop\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.csprojAssemblyReference.cache
+C:\Users\Windows\Desktop\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.exe
+C:\Users\Windows\Desktop\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.pdb
+C:\Users\Windows\Desktop\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ProyectoProgramacionFTP.exe.config
+C:\Users\Windows\Desktop\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ProyectoProgramacionFTP.exe
+C:\Users\Windows\Desktop\ProyectoFinalFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ProyectoProgramacionFTP.pdb
