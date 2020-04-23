@@ -7,17 +7,8 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-//using System.IO.File;
-//using System.IO.Directory;
-
 namespace ConsoleApp1
-{
 
-    // Simple synchronous file copy operations with no user interface.
-    // To run this sample, first create the following directories and files:
-    // C:\Users\Public\TestFolder
-    // C:\Users\Public\TestFolder\test.txt
-    // C:\Users\Public\TestFolder\SubDir\test.txt
     public class SimpleFileCopy
     {
         static void Main()
@@ -48,10 +39,8 @@ namespace ConsoleApp1
             {
                 string[] files = System.IO.Directory.GetFiles(CarpOrigen);
 
-                // Copy the files and overwrite destination files if they already exist.
                 foreach (string s in files)
                 {
-                    // Use static Path methods to extract only the file name from the path.
                     Thread.Sleep(600);
                     NombreArchivo = System.IO.Path.GetFileName(s);
                     destFile = System.IO.Path.Combine(CarpDestino, NombreArchivo);
