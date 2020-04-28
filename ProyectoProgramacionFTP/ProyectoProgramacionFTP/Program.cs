@@ -5,8 +5,9 @@ using System.Text;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-
-
+using ConverXmlFiles;
+using System.Timers;
+using Timer = System.Timers.Timer;
 //using System.IO.File;
 //using System.IO.Directory;
 
@@ -22,8 +23,12 @@ namespace ConsoleApp1
     {
         static void Main()
         {
+            ConverXmlFiles.Program convertXml = new ConverXmlFiles.Program();
+            convertXml.IniciarItervalo();
+            //convertXml.Pruebas();
             MoverArchivosFTP();
-            //ConverXmlFiles.Program convert = new ConverXmlFiles.Program();
+
+
         }
 
         public static void CrearExcelPrueba()

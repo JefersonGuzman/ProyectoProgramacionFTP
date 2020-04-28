@@ -7,7 +7,11 @@ C:\Users\Windows\Desktop\Programacion C·\ProyectoFinalFTP\ProyectoProgramacionF
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ProyectoProgramacionFTP.exe.config
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ProyectoProgramacionFTP.exe
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ProyectoProgramacionFTP.pdb
+C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ConverXmlFiles.exe
+C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ConverXmlFiles.pdb
+C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\bin\Debug\ConverXmlFiles.exe.config
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.csprojAssemblyReference.cache
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.csproj.CopyComplete
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.exe
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ProyectoProgramacionFTP\obj\Debug\ProyectoProgramacionFTP.pdb
