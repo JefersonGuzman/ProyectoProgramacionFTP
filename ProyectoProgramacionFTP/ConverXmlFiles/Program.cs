@@ -92,25 +92,23 @@ namespace ConverXmlFiles
             if (System.IO.Directory.Exists(directorioOrigen))
             {
                 string[] directory = System.IO.Directory.GetFiles(@directorioOrigen);
-                if (directory.Length > 0)
+                if (directory.Length > 1)
                 {
                     foreach (var files in directory)
                     {
 
-                        Thread.Sleep(2000);
-                        string nameFile = System.IO.Path.GetFileName(files);
-                        var firstColumn = new List<string>();
-                        var lastColumn = new List<string>();
-                        string[] lineas = File.ReadAllLines(System.IO.Path.Combine(directorioOrigen, nameFile));
-                        Console.WriteLine(lineas.Length);
-                        if (lineas.Length > 0)
+                        Thread.Sleep(2000); //Establece un intermedio de 2 seg
+                        string nameFile = System.IO.Path.GetFileName(files); //Obtiene el nombre de los carchivos del directorio
+                        string[] lineas = File.ReadAllLines(System.IO.Path.Combine(directorioOrigen, nameFile)); //Lee las lineas del csv
+                        if (lineas.Length > 0) //Valida si el archivo tiene mas contenido
                         {
-                            string[] headers = lineas[0].Split(';');
-                            string[] body = lineas[1].Split(';');
-                            string nameFileXml = body[0] + "_"+ nameFile.Replace(".csv", ".xml");
-                            FileStream fs = File.Create(System.IO.Path.Combine(directorioDesctino, nameFileXml));
-                            byte[] info = new UTF8Encoding(true).GetBytes(Generar(headers, body));
-                            fs.Write(info, 0, info.Length);
+                            string[] headers = lineas[0].Split(';'); //Se almacena la primer fila como headers
+                            string[] body = lineas[1].Split(';'); //Se almacena la segunda fila como el body del documento
+                            string nameFileXml = body[0] + "_"+ nameFile.Replace(".csv", ".xml"); //Establece el nombre del nuevo XML (tipoDoc_nombreArchivo.xml)
+                            string nombrecarpeta = prueba(body[0]);
+                            FileStream fs = File.Create(System.IO.Path.Combine(directorioDesctino, nameFileXml)); //Crea el archivo XML y lo almacena en la carpeta destino
+                            byte[] info = new UTF8Encoding(true).GetBytes(Generar(headers, body)); //Codifica el contenido del documento (Cuerpo XML)
+                            fs.Write(info, 0, info.Length); //Escribe el documento con el cuerpo obtenido.
                         }
                     }
                 }
@@ -133,9 +131,25 @@ namespace ConverXmlFiles
             documento += "</documento_" + body[0] + ">";
             return documento;
         }
+
         public void FinalizarIntervalo() //Detiene la lectura de archivos csv
         {
 
+        }
+
+        public static string prueba(string tipoDoc)
+        {
+            string nombrecarpeta = "";
+
+            switch (tipoDoc)
+            {
+                case "SOLI":
+                    nombrecarpeta = "XML_SOLI";
+                    break;
+                default: nombrecarpeta = "ss";
+            }
+
+            return nombrecarpeta;
         }
     }
 }

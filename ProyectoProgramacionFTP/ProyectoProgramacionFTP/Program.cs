@@ -26,7 +26,7 @@ namespace ConsoleApp1
             ConverXmlFiles.Program convertXml = new ConverXmlFiles.Program();
             convertXml.IniciarItervalo();
             //convertXml.Pruebas();
-            MoverArchivosFTP();
+            //MoverArchivosFTP();
 
 
         }
