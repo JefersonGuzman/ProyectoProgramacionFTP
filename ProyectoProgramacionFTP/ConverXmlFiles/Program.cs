@@ -146,7 +146,7 @@ namespace ConverXmlFiles
                 case "SOLI":
                     nombrecarpeta = "XML_SOLI";
                     break;
-                default: nombrecarpeta = "ss";
+                default: nombrecarpeta = "ss"; break;
             }
 
             return nombrecarpeta;
