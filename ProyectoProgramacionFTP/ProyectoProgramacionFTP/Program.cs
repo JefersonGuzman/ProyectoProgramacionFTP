@@ -15,17 +15,16 @@ using ProyectoProgramacionFTP.SubProcesos;
 namespace ConsoleApp1
 {
 
-    // Simple synchronous file copy operations with no user interface.
-    // To run this sample, first create the following directories and files:
-    // C:\Users\Public\TestFolder
-    // C:\Users\Public\TestFolder\test.txt
-    // C:\Users\Public\TestFolder\SubDir\test.txt
     public class SimpleFileCopy
     {
         private static ConvertCsvToXml convertCsvTo;
-        static void Main()
+        private static AgruparXmlColas agruparXmlColas;
+        static async Task Main()
         {
+            
             convertCsvTo = new ConvertCsvToXml();
+            agruparXmlColas = new AgruparXmlColas();
+            agruparXmlColas.AgruparDocumentosXmlCanonicos();
             do
             {
             MoverArchivosFTP();
