@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ConverXmlFiles;
 using System.Timers;
 using Timer = System.Timers.Timer;
+using ProyectoProgramacionFTP.SubProcesos;
 //using System.IO.File;
 //using System.IO.Directory;
 
@@ -21,20 +22,14 @@ namespace ConsoleApp1
     // C:\Users\Public\TestFolder\SubDir\test.txt
     public class SimpleFileCopy
     {
+        private static ConvertCsvToXml convertCsvTo;
         static void Main()
         {
-            ConverXmlFiles.Program convertXml = new ConverXmlFiles.Program();
-            convertXml.IniciarItervalo();
-            //convertXml.Pruebas();
-            //MoverArchivosFTP();
-
-
-        }
-
-        public static void CrearExcelPrueba()
-        {
-            string parthFile = AppDomain.CurrentDomain.BaseDirectory + "prueba_1.csv";
-
+            convertCsvTo = new ConvertCsvToXml();
+            do
+            {
+            MoverArchivosFTP();
+            } while (true);
         }
 
         //Este Metodo lo que hace es mover los archivos 
@@ -58,6 +53,7 @@ namespace ConsoleApp1
                     string fileDestino = (System.IO.Path.Combine(directorioDesctino, nameFile));
                     System.IO.File.Move(files, fileDestino);
                     Console.WriteLine("Transfiriendo archivos CSV a la carpeta Origen.................... " + nameFile);
+                    convertCsvTo.LeerArchivosCSV();
                 }
             }
         }
