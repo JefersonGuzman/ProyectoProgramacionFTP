@@ -19,15 +19,17 @@ namespace ConsoleApp1
     {
         private static ConvertCsvToXml convertCsvTo;
         private static AgruparXmlColas agruparXmlColas;
-        static async Task Main()
+        static void Main()
         {
-            
-            convertCsvTo = new ConvertCsvToXml();
             agruparXmlColas = new AgruparXmlColas();
-            agruparXmlColas.AgruparDocumentosXmlCanonicos();
+            convertCsvTo = new ConvertCsvToXml();
             do
             {
-            MoverArchivosFTP();
+                Task.Run(async () =>
+                {
+                    Task<bool> prueba = agruparXmlColas.AgruparDocumentosXmlCanonicos();
+                    MoverArchivosFTP();
+                }).GetAwaiter().GetResult();
             } while (true);
         }
 

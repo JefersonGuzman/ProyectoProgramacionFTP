@@ -530,5 +530,35 @@ namespace ProyectoProgramacionFTP.Utilidades
             }
             return headersCanonic;
         }
+
+        public string SetNombreCarpetaCola(string consecutivo)
+        {
+            string nombreCarpeta;
+            switch (consecutivo)
+            {
+                case "SOLI":
+                    nombreCarpeta = "Alta";
+                    break;
+                case "SOLMAFI":
+                    nombreCarpeta = "Baja";
+                    break;
+                case "SOLMAAC":
+                    nombreCarpeta = "Media";
+                    break;
+                case "SOLGRA":
+                    nombreCarpeta = "XML_SOLGRA";
+                    break;
+                case "SOLCREES":
+                    nombreCarpeta = "XML_SOLCREES";
+                    break;
+                case "SOLCANMA":
+                    nombreCarpeta = "XML_SOLCANMA";
+                    break;
+                default:
+                    nombreCarpeta = "SIN_FORMATO";
+                    break;
+            }
+            return nombreCarpeta;
+        }
     }
 }
