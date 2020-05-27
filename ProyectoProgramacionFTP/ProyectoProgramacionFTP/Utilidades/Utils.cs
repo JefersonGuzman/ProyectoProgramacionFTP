@@ -546,16 +546,16 @@ namespace ProyectoProgramacionFTP.Utilidades
                     nombreCarpeta = "Media";
                     break;
                 case "SOLGRA":
-                    nombreCarpeta = "XML_SOLGRA";
+                    nombreCarpeta = "Alta";
                     break;
                 case "SOLCREES":
-                    nombreCarpeta = "XML_SOLCREES";
+                    nombreCarpeta = "Baja";
                     break;
                 case "SOLCANMA":
-                    nombreCarpeta = "XML_SOLCANMA";
+                    nombreCarpeta = "Media";
                     break;
                 default:
-                    nombreCarpeta = "SIN_FORMATO";
+                    nombreCarpeta = "Alta";
                     break;
             }
             return nombreCarpeta;

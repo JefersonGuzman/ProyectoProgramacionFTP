@@ -26,7 +26,8 @@ namespace ProyectoProgramacionFTP.SubProcesos
                 {
                     string nameFile = System.IO.Path.GetFileName(files);
                     Utils utl = new Utils();
-                    string nombreCarpeta = utl.SetNombreCarpetaCola("SOLI");
+                    String[] TipoArchivo = nameFile.Split('_');
+                    string nombreCarpeta = utl.SetNombreCarpetaCola(TipoArchivo[0]);
                     string fileDestino = (System.IO.Path.Combine(directorioDesctino + "/" + nombreCarpeta, nameFile));
                     System.IO.File.Move(files, fileDestino);
                     Console.WriteLine("Transfiriendo archivos CANONICOS a la carpeta Origen.................... " + nameFile);
