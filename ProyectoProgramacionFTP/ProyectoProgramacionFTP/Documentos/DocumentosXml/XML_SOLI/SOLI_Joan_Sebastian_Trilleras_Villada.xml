@@ -1,15 +1,15 @@
 <documento_SOLI>
 	<type_doc>SOLI</type_doc>
-	<soli_id>1</soli_id>
+	<soli_id>2</soli_id>
 	<tipo_documento>CC</tipo_documento>
-	<documento>6554114454</documento>
+	<documento>552211441</documento>
 	<lugar_expedicion>CALI</lugar_expedicion>
 	<genero>M</genero>
-	<primer_nombre>CARLA</primer_nombre>
-	<segundo_nombre>ANDREA</segundo_nombre>
-	<primer_apellido>SANCHEZ</primer_apellido>
+	<primer_nombre>JOAN</primer_nombre>
+	<segundo_nombre>SEBASTIAN</segundo_nombre>
+	<primer_apellido>TRILLERAS</primer_apellido>
 	<segundo_apellido>VILLADA</segundo_apellido>
-	<estado_civil>M</estado_civil>
+	<estado_civil>S</estado_civil>
 	<pais_origen>COLOMBIA</pais_origen>
 	<dpmt_origen>VALLE DEL CAUCA</dpmt_origen>
 	<mpio_origen>CALI</mpio_origen>

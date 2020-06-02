@@ -4,3 +4,4 @@ C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\Conve
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ConverXmlFiles\obj\Debug\ConverXmlFiles.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ConverXmlFiles\obj\Debug\ConverXmlFiles.exe
 C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ConverXmlFiles\obj\Debug\ConverXmlFiles.pdb
+C:\Users\User\source\repos\ProyectoProgramacionFTP\ProyectoProgramacionFTP\ConverXmlFiles\obj\Debug\ConverXmlFiles.csprojAssemblyReference.cache

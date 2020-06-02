@@ -58,6 +58,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Nodo.cs" />
+    <Compile Include="Clases\XmlCanonico.cs" />
+    <Compile Include="Colas\ColaPrioridadAlta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubProcesos\AgruparXmlColas.cs" />
@@ -89,5 +92,6 @@
       <Name>ConverXmlFiles</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

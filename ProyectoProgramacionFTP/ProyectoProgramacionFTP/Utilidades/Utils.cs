@@ -41,8 +41,8 @@ namespace ProyectoProgramacionFTP.Utilidades
         public string[] ObtenerEncabezadosCanonico(string[] headers, string[] body)
         {
             int cantHeaders = headers.Length;
-            string[] headersCanonic = new string[37];
-            int[] indice = new int[37];
+            string[] headersCanonic = new string[38];
+            int[] indice = new int[38];
             for (int i = 0; i < cantHeaders; i++)
             {
                 if (headers[i].Equals("type_doc"))
@@ -86,7 +86,7 @@ namespace ProyectoProgramacionFTP.Utilidades
                     }
                 }
                 //
-                if (headers[i].Equals("documento") || headers[i].Equals("numero_documento"))
+                if (headers[i].Equals("documento") || headers[i].Equals("numero_documento") || headers[i].Equals("cod_estudiante"))
                 {
                     headersCanonic[3] = "<documento>" + body[i] + "</documento>";
                     indice[3] = 1;
@@ -112,7 +112,7 @@ namespace ProyectoProgramacionFTP.Utilidades
                     }
                 }
                 //
-                if (headers[i].Equals("primer_nombre") || headers[i].Equals("nombre"))
+                if (headers[i].Equals("primer_nombre") || headers[i].Equals("nombre") || headers[i].Equals("nombre_solicitante"))
                 {
                     headersCanonic[5] = "<primer_nombre>" + body[i] + "</primer_nombre>";
                     indice[5] = 1;
@@ -320,7 +320,7 @@ namespace ProyectoProgramacionFTP.Utilidades
                     }
                 }
                 //
-                if (headers[i].Equals("program_academico") || headers[i].Equals("progama"))
+                if (headers[i].Equals("program_academico") || headers[i].Equals("progama") || headers[i].Equals("cod_programa_academico"))
                 {
                     headersCanonic[21] = "<progama>" + body[i] + "</progama>";
                     indice[21] = 1;
@@ -359,7 +359,7 @@ namespace ProyectoProgramacionFTP.Utilidades
                     }
                 }
                 //
-                if (headers[i].Equals("descrip_solicitud"))
+                if (headers[i].Equals("descrip_solicitud") || headers[i].Equals("motivo_cancelacion"))
                 {
                     headersCanonic[24] = "<descripcion>" + body[i] + "</descripcion>";
                     indice[24] = 1;
@@ -398,7 +398,7 @@ namespace ProyectoProgramacionFTP.Utilidades
                     }
                 }
                 //
-                if (headers[i].Equals("periodo_matricula"))
+                if (headers[i].Equals("periodo_matricula") || headers[i].Equals("periodo_academico"))
                 {
                     headersCanonic[27] = "<periodo>" + body[i] + "</periodo>";
                     indice[27] = 1;
@@ -525,6 +525,19 @@ namespace ProyectoProgramacionFTP.Utilidades
                     if (indice[36] == 0)
                     {
                         headersCanonic[36] = "<contrasena></contrasena>";
+                    }
+                }
+                //
+                if (headers[i].Equals("sede"))
+                {
+                    headersCanonic[37] = "<sede>" + body[i] + "</sede>";
+                    indice[37] = 1;
+                }
+                else
+                {
+                    if (indice[37] == 0)
+                    {
+                        headersCanonic[37] = "<sede></sede>";
                     }
                 }
             }
