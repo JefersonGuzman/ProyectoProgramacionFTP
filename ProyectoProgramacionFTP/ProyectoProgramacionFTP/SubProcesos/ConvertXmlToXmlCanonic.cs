@@ -8,17 +8,33 @@ using System.Threading.Tasks;
 
 namespace ProyectoProgramacionFTP.SubProcesos
 {
+    ///<summary>
+    ///Clase que convierte los ficheros de XML a XML CANONICO
+    ///</summary>
+    ///<remarks>
+    ///Lee los ficheros convertidos a xml y realiza conversion a un xml canonico para el
+    ///proceso final.
+    ///</remarks>
     class ConvertXmlToXmlCanonic
     {
-        public static Utils util = new Utils();
-        public void ObtenerArchivoXml(string directorioOrigen, string nombreArchivoXml)
+        public static Utils util = new Utils(); //Instancia clase de utilidades
+        ///<summary>
+        ///Metodo que obtiene los ficheros xml para convertirlos
+        ///</summary>
+        ///<remarks>
+        ///Se realiza busqueda en los directorios especificados y el nombre de archivo para realizar la lectura 
+        ///de ese archivo, finalmente convertirlo a un fichero XML CANONICO
+        ///<param name="directorioOrigen">Directorio del fichero de origen</param>
+        ///<param name="nombreArchivoXml">Nombre del fichero a convertir</param>
+        ///</remarks>
+        public void ObtenerArchivoXml(string directorioOrigen, string nombreArchivoXml) //Instancia clase que convierte archivos a canonicos
         {
             string fullPath = @"..\..\";
-            string directorioDesctino = Path.GetFullPath(fullPath + "/Documentos/Canonicos");
-            string[] fichero = File.ReadAllLines(System.IO.Path.Combine(directorioOrigen, nombreArchivoXml));
-            int cantFilas = fichero.Length - 2;
-            string[] body = new string[cantFilas];
-            string[] headers = new string[cantFilas];
+            string directorioDesctino = Path.GetFullPath(fullPath + "/Documentos/Canonicos"); //Define la ruta de destino de los archivos
+            string[] fichero = File.ReadAllLines(System.IO.Path.Combine(directorioOrigen, nombreArchivoXml)); //Realiza la lectura del fichero obteniendo sus lineas
+            int cantFilas = fichero.Length - 2; //Establece la cantidad de filas omitiendo la primera y la ultima
+            string[] body = new string[cantFilas]; //Define el tamaño del array del body
+            string[] headers = new string[cantFilas]; //Define el tamaño del array del headers
             for (int i = 1; i < (fichero.Length - 1); i++)
             {
                 string[] auxiliar = fichero[i].Split('<');

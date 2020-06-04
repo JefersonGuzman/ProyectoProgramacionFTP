@@ -62,26 +62,26 @@ namespace ConsoleApp1
             }
             if (System.IO.Directory.Exists(directorioOrigen))
             {
-                string[] directory = System.IO.Directory.GetFiles(@directorioOrigen); //Obtiene los documentos  de la carpeta de origen
-                foreach (var files in directory)
+                DirectoryInfo directory = new DirectoryInfo(@directorioOrigen);
+                FileInfo[] file = directory.GetFiles().OrderBy(p => p.CreationTime).ToArray();
+                foreach (var files in file)
                 {
                     Thread.Sleep(2000); //Realiza temporalizador de cada 2 segundos
-                    string nameFile = System.IO.Path.GetFileName(files); //Obtiene el nombre del fichero
+                    string nameFile = files.Name; //Obtiene el nombre del fichero
                     string fileDestino = (System.IO.Path.Combine(directorioDesctino, nameFile)); //Genera ruta del fichero en la ruta de destino
                     if (!File.Exists(fileDestino)) //Valida si el fiechero existe en la carpeta comun
                     {
-                        File.Move(files, fileDestino); //Mueve los fiecheros a la carpeta comun
+                        File.Move(files.FullName, fileDestino); //Mueve los fiecheros a la carpeta comun
                         Console.WriteLine("Transfiriendo archivos CSV a la carpeta Origen.................... " + nameFile);
                     }
                     else
                     {
                         File.Delete(fileDestino); //Elimina el fichero existente en la carpeta comun
-                        File.Move(files, fileDestino); //Mueve los fiecheros a la carpeta comun
+                        File.Move(files.FullName, fileDestino); //Mueve los fiecheros a la carpeta comun
                         string mensaje = "Archivo existente, archivo: " + fileDestino + " Proceso: Dosificador, se remplaza" + " Fecha proceso: " + DateTime.Today;
                         utl.RegistroLog(mensaje, "FILE_EXIST", "file_exist.txt"); //Registra log de procesos
                     }
                     convertCsvTo.LeerArchivosCSV(); //Realiza llamado a la lectura del fichero csv
-
                 }
             }
             else
