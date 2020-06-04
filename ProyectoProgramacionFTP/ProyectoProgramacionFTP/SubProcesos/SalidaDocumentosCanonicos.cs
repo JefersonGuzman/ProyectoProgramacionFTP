@@ -9,9 +9,24 @@ using System.Threading.Tasks;
 
 namespace ProyectoProgramacionFTP.SubProcesos
 {
+    ///<summary>
+    ///Clase que realiza la exporación de los documentos
+    ///</summary>
+    ///<remarks>
+    ///Realiza la exportación de los documentos a las carpetas de destino de los outputs
+    ///</remarks>
     class SalidaDocumentosCanonicos
     {
-        public static Utils utl = new Utils();
+        public static Utils utl = new Utils(); //Instancia clase de utilidades
+        ///<summary>
+        ///Metodo que realiza la exportación de documentos
+        ///</summary>
+        ///<remarks>
+        ///Se realiza la estructuración, se busca el archivo canonico almacenado en la 
+        ///cola para luego exportar el documento a la carpeta destino.
+        ///</remarks>
+        ///<param name="xmlCanonico">Estructura XML CANONICO</param>
+        ///<param name="carpetaCola">Nombre de la carpeta de salida</param>
         public void ProcesoSalidaDocumentosXml(XmlCanonico xmlCanonico, string carpetaCola)
         {
             string fullPath = @"..\..\";

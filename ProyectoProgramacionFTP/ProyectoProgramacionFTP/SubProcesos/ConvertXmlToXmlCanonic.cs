@@ -61,6 +61,14 @@ namespace ProyectoProgramacionFTP.SubProcesos
             }
         }
 
+        ///<summary>
+        ///Metodo que genera la estructura del XML CANONICO
+        ///</summary>
+        ///<remarks>
+        ///Realiza la estructura del XML CANONICO, con los parametros del array
+        ///<param name="xmlCanonico">Array que contiene la estructura del XML CANONICO</param>
+        ///<return>Retorna la estructura del XML CANONICO en una variable string</return>
+        ///</remarks>
         public static string GenerarXmlCanonico(string[] xmlCanonico)
         {
             int cantFilas = xmlCanonico.Length;
