@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ProyectoProgramacionFTP.Clases
 {
-    class XmlCanonico
+    public class XmlCanonico
     {
         string type_doc, consecutivo_id, tipo_documento, documento, lugar_expedicion
             , primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, estado_civil, pais
             , departamento, municipio, fecha_nacimiento, barrio, telefono, celular, correo, fecha_registro
             , genero, direccion, progama, semestre, asunto, descripcion, estado, tipo_transaccion, periodo, creditos, codigo, asignatura
-            , grupo, franja, ceremonia, ventanilla, usuario, contraseña;
+            , grupo, franja, ceremonia, ventanilla, usuario, contraseña,sede;
 
         public string Type_doc { get => type_doc; set => type_doc = value; }
         public string Consecutivo_id { get => consecutivo_id; set => consecutivo_id = value; }
@@ -51,19 +51,20 @@ namespace ProyectoProgramacionFTP.Clases
         public string Ventanilla { get => ventanilla; set => ventanilla = value; }
         public string Usuario { get => usuario; set => usuario = value; }
         public string Contraseña { get => contraseña; set => contraseña = value; }
+        public string Sede { get => sede; set => sede = value; }
 
         public override string ToString()
         {
-            return "type_doc: " + this.type_doc + " consecutivo_id: " + this.consecutivo_id + " tipo_documento:" + this.tipo_documento
-                + " documento: " + this.documento + " lugar_expedicion: " + this.lugar_expedicion + " primer_nombre: " + this.primer_nombre
-                + " segundo_nombre: " + this.segundo_nombre + " primer_apellido: " + this.primer_apellido + " segundo_apellido: " + this.segundo_apellido
-                + " estado_civil: " + this.estado_civil + " pais: " + this.pais + " departamento: " + this.departamento + " municipio:" + this.municipio
-                + " fecha_nacimiento: " + this.fecha_nacimiento + " barrio: " + this.barrio + " telefono: " + this.telefono + " celular: " + this.celular
-                + " correo: " + this.correo + " fecha_registro: " + this.fecha_registro + " genero: " + this.genero + " direccion: " + this.direccion + " progama: " + this.progama
-                + " semestre: " + this.semestre + " asunto: " + this.asunto + " descripcion: " + this.descripcion + " estado: " + this.estado + " tipo_transaccion: " + this.tipo_transaccion
-                + " periodo: " + this.periodo + " creditos: " + this.creditos + " codigo: " + this.codigo + " asignatura: " + this.asignatura + " grupo: " + this.grupo
-                + " franja: " + this.franja + " ceremonia: " + this.ceremonia + " ventanilla: " + this.ventanilla + " usuario: " + this.usuario 
-                + " contraseña: " + this.contraseña;
+            return "type_doc: " + this.Type_doc + " consecutivo_id: " + this.Consecutivo_id + " tipo_documento:" + this.Tipo_documento
+                + " documento: " + this.Documento + " lugar_expedicion: " + this.Lugar_expedicion + " primer_nombre: " + this.Primer_nombre
+                + " segundo_nombre: " + this.Segundo_nombre + " primer_apellido: " + this.Primer_apellido + " segundo_apellido: " + this.Segundo_apellido
+                + " estado_civil: " + this.Estado_civil + " pais: " + this.Pais + " departamento: " + this.Departamento + " municipio:" + this.Municipio
+                + " fecha_nacimiento: " + this.Fecha_nacimiento + " barrio: " + this.Barrio + " telefono: " + this.Telefono + " celular: " + this.Celular
+                + " correo: " + this.Correo + " fecha_registro: " + this.Fecha_registro + " genero: " + this.Genero + " direccion: " + this.Direccion + " progama: " + this.Progama
+                + " semestre: " + this.Semestre + " asunto: " + this.Asunto + " descripcion: " + this.Descripcion + " estado: " + this.Estado + " tipo_transaccion: " + this.Tipo_transaccion
+                + " periodo: " + this.Periodo + " creditos: " + this.Creditos + " codigo: " + this.Codigo + " asignatura: " + this.Asignatura + " grupo: " + this.Grupo
+                + " franja: " + this.Franja + " ceremonia: " + this.Ceremonia + " ventanilla: " + this.Ventanilla + " usuario: " + this.Usuario 
+                + " contraseña: " + this.Contraseña + " sede: " + this.Sede;
         }
     }
 }

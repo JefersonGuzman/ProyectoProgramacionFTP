@@ -10,7 +10,7 @@ namespace ProyectoProgramacionFTP.SubProcesos
 {
     class ConvertXmlToXmlCanonic
     {
-        
+        public static Utils util = new Utils();
         public void ObtenerArchivoXml(string directorioOrigen, string nombreArchivoXml)
         {
             string fullPath = @"..\..\";
@@ -29,7 +29,6 @@ namespace ProyectoProgramacionFTP.SubProcesos
                     body[i-1] = auxiliar2[1];
                 }
             }
-            Utils util = new Utils();
             string[] xmlCanonico = util.ObtenerEncabezadosCanonico(headers,body);
             string documentoGenerado = GenerarXmlCanonico(xmlCanonico);
             if (!File.Exists(System.IO.Path.Combine(directorioDesctino, nombreArchivoXml))) 
@@ -38,6 +37,11 @@ namespace ProyectoProgramacionFTP.SubProcesos
                 FileStream fs = File.Create(System.IO.Path.Combine(directorioDesctino, nombreArchivoXml)); //Crea el archivo XML y lo almacena en la carpeta destino
                 fs.Write(info, 0, info.Length); //Escribe el documento con el cuerpo obtenido.
                 fs.Close();
+            }
+            else
+            {
+                string mensaje = "Archivo existente, archivo: " + nombreArchivoXml + " Proceso: Convertir XML a XML_CANONICO" + " Fecha proceso: " + DateTime.Today;
+                util.RegistroLog(mensaje, "FILE_EXIST", "file_exist.txt");
             }
         }
 

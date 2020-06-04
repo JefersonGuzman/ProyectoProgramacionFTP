@@ -12,6 +12,7 @@ namespace ProyectoProgramacionFTP.SubProcesos
 {
     class AgruparXmlColas
     {
+        public static Utils utl = new Utils();
         public async Task<bool> AgruparDocumentosXmlCanonicos()
         {
             string fullPath = @"..\..\";
@@ -27,7 +28,6 @@ namespace ProyectoProgramacionFTP.SubProcesos
                 foreach (var files in directory)
                 {
                     string nameFile = System.IO.Path.GetFileName(files);
-                    Utils utl = new Utils();
                     String[] TipoArchivo = nameFile.Split('_');
                     string[] fichero = File.ReadAllLines(System.IO.Path.Combine(directorioOrigen, nameFile));
                     string nombreCarpeta = utl.SetNombreCarpetaCola(TipoArchivo[0]);
@@ -36,33 +36,51 @@ namespace ProyectoProgramacionFTP.SubProcesos
                     InsertarColaSegunPrioridad(fichero, nombreCarpeta);
                 }
             }
+            else
+            {
+                string mensaje = "Directorio NO existe, archivo: (" + directorioOrigen + ") Proceso: Agrupar en carpeta colas" + " Fecha proceso: " + DateTime.Today;
+                utl.RegistroLog(mensaje, "FILE_EXIST", "file_exist.txt");
+            }
             return true;
         }
 
         public void InsertarColaSegunPrioridad(string[] fichero, string cola)
         {
             XmlCanonico datos = GetFormaListaDatos(fichero);
-            for (int i = 0; i < datos.Length; i++)
+            if (cola.Equals("Alta"))
             {
-                Console.WriteLine(datos[i]);
+                ColaPrioridadAlta.Cola.AgregarElementosAlInicio(datos);
             }
+            else if (cola.Equals("Media"))
+            {
+                ColaPrioridadAlta.Cola.AgregarElementosAlInicio(datos);
+            }
+            else
+            {
+                ColaPrioridadAlta.Cola.AgregarElementosAlInicio(datos);
+            }
+            
         }
 
         public static XmlCanonico GetFormaListaDatos(string[] fichero)
         {
             int cantFilas = fichero.Length - 2;
             string[] body = new string[cantFilas];
+            string[] headers = new string[cantFilas];
             for (int i = 1; i < (fichero.Length - 1); i++)
             {
                 string[] auxiliar = fichero[i].Split('<');
                 if (!String.IsNullOrEmpty(auxiliar[1]))
                 {
                     string[] auxiliar2 = auxiliar[1].Split('>');
-                    body[i - 1] = auxiliar2[1];
+                    headers[i-1] = auxiliar2[0];
+                    body[i-1] = auxiliar2[1];
                 }
             }
 
-            return body;
+            Utils ult = new Utils();
+            XmlCanonico documento = ult.GenerarObjetoXmlCanonico(headers,body);
+            return documento;
         }
 
     }

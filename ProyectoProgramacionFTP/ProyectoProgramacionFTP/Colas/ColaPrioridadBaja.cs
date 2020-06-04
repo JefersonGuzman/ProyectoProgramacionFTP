@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ProyectoProgramacionFTP.Colas
 {
-    class ColaPrioridadAlta
+    class ColaPrioridadBaja
     {
         private Nodo cabeza;
-        public static ColaPrioridadAlta Cola = new ColaPrioridadAlta();
+        public static ColaPrioridadBaja Cola = new ColaPrioridadBaja();
         public static SalidaDocumentosCanonicos salida = new SalidaDocumentosCanonicos();
-        
-        private ColaPrioridadAlta() { }
+
+        private ColaPrioridadBaja() { }
 
         public bool ListaVacia()
         {
@@ -43,7 +43,7 @@ namespace ProyectoProgramacionFTP.Colas
             }
         }
 
-        public void ExportarDocumento() 
+        public void ExportarDocumento()
         {
             Nodo eliminarNodo = cabeza;
             XmlCanonico datosXmlNodo = cabeza.XmlCanonico;
@@ -54,7 +54,7 @@ namespace ProyectoProgramacionFTP.Colas
                 cabeza = eliminarNodo;
             }
 
-            salida.ProcesoSalidaDocumentosXml(datosXmlNodo, "Alta");
+            salida.ProcesoSalidaDocumentosXml(datosXmlNodo, "Baja");
         }
 
         public void Imprimir() //Metodo que permite imprimir

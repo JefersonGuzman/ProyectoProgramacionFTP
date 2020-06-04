@@ -61,11 +61,15 @@
     <Compile Include="Clases\Nodo.cs" />
     <Compile Include="Clases\XmlCanonico.cs" />
     <Compile Include="Colas\ColaPrioridadAlta.cs" />
+    <Compile Include="Colas\ColaPrioridadBaja.cs" />
+    <Compile Include="Colas\ColaPrioridadMedia.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubProcesos\AgruparXmlColas.cs" />
     <Compile Include="SubProcesos\ConvertCsvToXml.cs" />
     <Compile Include="SubProcesos\ConvertXmlToXmlCanonic.cs" />
+    <Compile Include="SubProcesos\LeerListaColasPrioridades.cs" />
+    <Compile Include="SubProcesos\SalidaDocumentosCanonicos.cs" />
     <Compile Include="Utilidades\Utils.cs" />
   </ItemGroup>
   <ItemGroup>

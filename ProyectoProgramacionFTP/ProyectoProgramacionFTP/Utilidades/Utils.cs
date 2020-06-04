@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ProyectoProgramacionFTP.Clases;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -572,6 +574,589 @@ namespace ProyectoProgramacionFTP.Utilidades
                     break;
             }
             return nombreCarpeta;
+        }
+
+        public XmlCanonico GenerarObjetoXmlCanonico(string[] headers, string[] body)
+        {
+            int cantHeaders = headers.Length;
+            int[] indice = new int[38];
+            XmlCanonico xmlObjeto = new XmlCanonico();
+            for (int i = 0; i < cantHeaders; i++)
+            {
+                if (headers[i].Equals("type_doc"))
+                {
+                    xmlObjeto.Type_doc = body[i];
+                    indice[0] = 1;
+                }
+                else
+                {
+                    if (indice[0] == 0)
+                    {
+                        xmlObjeto.Type_doc = "";
+                    }
+                }
+                //
+
+                if (headers[i].Equals("consecutivo_id"))
+                {
+                    xmlObjeto.Consecutivo_id = body[i];
+                    indice[1] = 1;
+                }
+                else
+                {
+                    if (indice[1] == 0)
+                    {
+                        xmlObjeto.Consecutivo_id = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("tipo_documento"))
+                {
+                    xmlObjeto.Tipo_documento = body[i];
+                    indice[2] = 1;
+                }
+                else
+                {
+                    if (indice[2] == 0)
+                    {
+                        xmlObjeto.Tipo_documento = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("documento"))
+                {
+                    xmlObjeto.Documento = body[i];
+                    indice[3] = 1;
+                }
+                else
+                {
+                    if (indice[3] == 0)
+                    {
+                        xmlObjeto.Documento = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("lugar_expedicion"))
+                {
+                    xmlObjeto.Lugar_expedicion = body[i];
+                    indice[4] = 1;
+                }
+                else
+                {
+                    if (indice[4] == 0)
+                    {
+                        xmlObjeto.Lugar_expedicion = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("primer_nombre"))
+                {
+                    xmlObjeto.Primer_nombre = body[i];
+                    indice[5] = 1;
+                }
+                else
+                {
+                    if (indice[5] == 0)
+                    {
+                        xmlObjeto.Primer_nombre = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("segundo_nombre"))
+                {
+                    xmlObjeto.Segundo_nombre = body[i];
+                    indice[6] = 1;
+                }
+                else
+                {
+                    if (indice[6] == 0)
+                    {
+                        xmlObjeto.Segundo_nombre = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("primer_apellido"))
+                {
+                    xmlObjeto.Primer_apellido = body[i];
+                    indice[7] = 1;
+                }
+                else
+                {
+                    if (indice[7] == 0)
+                    {
+                        xmlObjeto.Primer_apellido = "";
+                    }
+                }
+
+                if (headers[i].Equals("segundo_apellido"))
+                {
+                    xmlObjeto.Segundo_apellido = body[i];
+                    indice[8] = 1;
+                }
+                else
+                {
+                    if (indice[8] == 0)
+                    {
+                        xmlObjeto.Segundo_apellido = "";
+                    }
+                }
+
+                if (headers[i].Equals("estado_civil"))
+                {
+                    xmlObjeto.Estado_civil = body[i];
+                    indice[9] = 1;
+                }
+                else
+                {
+                    if (indice[9] == 0)
+                    {
+                        xmlObjeto.Estado_civil = "";
+                    }
+                }
+
+                if (headers[i].Equals("pais"))
+                {
+                    xmlObjeto.Pais = body[i];
+                    indice[10] = 1;
+                }
+                else
+                {
+                    if (indice[10] == 0)
+                    {
+                        xmlObjeto.Pais = "";
+                    }
+                }
+
+                if (headers[i].Equals("departamento"))
+                {
+                    xmlObjeto.Departamento = body[i];
+                    indice[11] = 1;
+                }
+                else
+                {
+                    if (indice[11] == 0)
+                    {
+                        xmlObjeto.Departamento = "";
+                    }
+                }
+
+                if (headers[i].Equals("municipio"))
+                {
+                    xmlObjeto.Municipio = body[i];
+                    indice[12] = 1;
+                }
+                else
+                {
+                    if (indice[12] == 0)
+                    {
+                        xmlObjeto.Municipio = "";
+                    }
+                }
+
+                if (headers[i].Equals("fecha_nacimiento"))
+                {
+                    xmlObjeto.Fecha_nacimiento = body[i];
+                    indice[13] = 1;
+                }
+                else
+                {
+                    if (indice[13] == 0)
+                    {
+                        xmlObjeto.Fecha_nacimiento = "";
+                    }
+                }
+
+                if (headers[i].Equals("barrio"))
+                {
+                    xmlObjeto.Barrio = body[i];
+                    indice[14] = 1;
+                }
+                else
+                {
+                    if (indice[14] == 0)
+                    {
+                        xmlObjeto.Barrio = "";
+                    }
+                }
+
+                if (headers[i].Equals("telefono"))
+                {
+                    xmlObjeto.Barrio = body[i];
+                    indice[15] = 1;
+                }
+                else
+                {
+                    if (indice[15] == 0)
+                    {
+                        xmlObjeto.Barrio = "";
+                    }
+                }
+
+                if (headers[i].Equals("celular"))
+                {
+                    xmlObjeto.Barrio = body[i];
+                    indice[16] = 1;
+                }
+                else
+                {
+                    if (indice[16] == 0)
+                    {
+                        xmlObjeto.Barrio = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("correo"))
+                {
+                    xmlObjeto.Correo = body[i];
+                    indice[17] = 1;
+                }
+                else
+                {
+                    if (indice[17] == 0)
+                    {
+                        xmlObjeto.Correo = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("fecha_registro"))
+                {
+                    xmlObjeto.Fecha_registro = body[i];
+                    indice[18] = 1;
+                }
+                else
+                {
+                    if (indice[18] == 0)
+                    {
+                        xmlObjeto.Correo = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("genero"))
+                {
+                    xmlObjeto.Genero = body[i];
+                    indice[19] = 1;
+                }
+                else
+                {
+                    if (indice[19] == 0)
+                    {
+                        xmlObjeto.Genero = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("direccion_residencia"))
+                {
+                    xmlObjeto.Direccion = body[i];
+                    indice[20] = 1;
+                }
+                else
+                {
+                    if (indice[20] == 0)
+                    {
+                        xmlObjeto.Direccion = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("progama"))
+                {
+                    xmlObjeto.Progama = body[i];
+                    indice[21] = 1;
+                }
+                else
+                {
+                    if (indice[21] == 0)
+                    {
+                        xmlObjeto.Progama = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("semestre"))
+                {
+                    xmlObjeto.Semestre = body[i];
+                    indice[22] = 1;
+                }
+                else
+                {
+                    if (indice[22] == 0)
+                    {
+                        xmlObjeto.Semestre = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("asunto"))
+                {
+                    xmlObjeto.Asunto = body[i];
+                    indice[23] = 1;
+                }
+                else
+                {
+                    if (indice[23] == 0)
+                    {
+                        xmlObjeto.Asunto = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("descripcion"))
+                {
+                    xmlObjeto.Descripcion = body[i];
+                    indice[24] = 1;
+                }
+                else
+                {
+                    if (indice[24] == 0)
+                    {
+                        xmlObjeto.Descripcion = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("estado"))
+                {
+                    xmlObjeto.Estado = body[i];
+                    indice[25] = 1;
+                }
+                else
+                {
+                    if (indice[25] == 0)
+                    {
+                        xmlObjeto.Estado = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("tipo_transaccion"))
+                {
+                    xmlObjeto.Tipo_transaccion = body[i];
+                    indice[26] = 1;
+                }
+                else
+                {
+                    if (indice[26] == 0)
+                    {
+                        xmlObjeto.Tipo_transaccion = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("periodo"))
+                {
+                    xmlObjeto.Periodo = body[i];
+                    indice[27] = 1;
+                }
+                else
+                {
+                    if (indice[27] == 0)
+                    {
+                        xmlObjeto.Periodo = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("creditos"))
+                {
+                    xmlObjeto.Creditos = body[i];
+                    indice[28] = 1;
+                }
+                else
+                {
+                    if (indice[28] == 0)
+                    {
+                        xmlObjeto.Creditos = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("codigo"))
+                {
+                    xmlObjeto.Codigo = body[i];
+                    indice[29] = 1;
+                }
+                else
+                {
+                    if (indice[29] == 0)
+                    {
+                        xmlObjeto.Codigo = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("asignatura"))
+                {
+                    xmlObjeto.Asignatura = body[i];
+                    indice[30] = 1;
+                }
+                else
+                {
+                    if (indice[30] == 0)
+                    {
+                        xmlObjeto.Asignatura = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("grupo"))
+                {
+                    xmlObjeto.Grupo = body[i];
+                    indice[31] = 1;
+                }
+                else
+                {
+                    if (indice[31] == 0)
+                    {
+                        xmlObjeto.Grupo = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("franja"))
+                {
+                    xmlObjeto.Franja = body[i];
+                    indice[32] = 1;
+                }
+                else
+                {
+                    if (indice[32] == 0)
+                    {
+                        xmlObjeto.Franja = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("ceremonia"))
+                {
+                    xmlObjeto.Ceremonia = body[i];
+                    indice[33] = 1;
+                }
+                else
+                {
+                    if (indice[33] == 0)
+                    {
+                        xmlObjeto.Ceremonia = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("ventanilla"))
+                {
+                    xmlObjeto.Ventanilla = body[i];
+                    indice[34] = 1;
+                }
+                else
+                {
+                    if (indice[34] == 0)
+                    {
+                        xmlObjeto.Ventanilla = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("usuario"))
+                {
+                    xmlObjeto.Usuario = body[i];
+                    indice[35] = 1;
+                }
+                else
+                {
+                    if (indice[35] == 0)
+                    {
+                        xmlObjeto.Usuario = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("contrasena"))
+                {
+                    xmlObjeto.Contraseña = body[i];
+                    indice[36] = 1;
+                }
+                else
+                {
+                    if (indice[36] == 0)
+                    {
+                        xmlObjeto.Usuario = "";
+                    }
+                }
+                //
+                if (headers[i].Equals("sede"))
+                {
+                    xmlObjeto.Sede = body[i];
+                    indice[37] = 1;
+                }
+                else
+                {
+                    if (indice[37] == 0)
+                    {
+                        xmlObjeto.Sede = "";
+                    }
+                }
+            }
+            return xmlObjeto;
+        }
+
+        public string SetNombreArchivoSalida(XmlCanonico xmlCanonico)
+        {
+            string nombreArchivo = "";
+            if (xmlCanonico.Primer_nombre != "")
+            {
+                nombreArchivo += "_" + xmlCanonico.Primer_nombre ;
+            }
+
+            if (xmlCanonico.Segundo_nombre != "")
+            {
+                nombreArchivo += "_" + xmlCanonico.Segundo_nombre;
+            }
+
+            if (xmlCanonico.Primer_apellido != "")
+            {
+                nombreArchivo += "_" + xmlCanonico.Primer_apellido;
+            }
+
+            if (xmlCanonico.Segundo_apellido != "")
+            {
+                nombreArchivo += "_" +  xmlCanonico.Segundo_apellido;
+            }
+            return nombreArchivo;
+        }
+
+        public string SetNombreCarpOutPut(string consecutivo)
+        {
+            string nombreCarpeta;
+            switch (consecutivo)
+            {
+                case "SOLI":
+                    nombreCarpeta = "OUT_SOLI";
+                    break;
+                case "SOLMAFI":
+                    nombreCarpeta = "OUT_SOLMAFI";
+                    break;
+                case "SOLMAAC":
+                    nombreCarpeta = "OUT_SOLMAAC";
+                    break;
+                case "SOLGRA":
+                    nombreCarpeta = "OUT_SOLGRA";
+                    break;
+                case "SOLCREES":
+                    nombreCarpeta = "OUT_SOLCREES";
+                    break;
+                case "SOLCANMA":
+                    nombreCarpeta = "OUT_SOLCANMA";
+                    break;
+                default:
+                    nombreCarpeta = "SIN_FORMATO";
+                    break;
+            }
+            return nombreCarpeta;
+
+        }
+
+        public void RegistroLog(string mensaje, string carpetaDestino, string nombreArchivos)
+        {
+            StreamWriter log;
+            string fullPath = @"..\..\";
+            string directorioDesctino = Path.GetFullPath(fullPath + "/Documentos/Logs");
+            if (!File.Exists(System.IO.Path.Combine(directorioDesctino + "/" + carpetaDestino, nombreArchivos)))
+            {
+                log = new StreamWriter(System.IO.Path.Combine(directorioDesctino + "/" + carpetaDestino, nombreArchivos));
+                log.WriteLine("///////////////////////////////////////////////////////////");
+                log.WriteLine("\t DOCUMENTO LOG DE TRANSACCIONES PARA" + carpetaDestino + " \t");
+                log.WriteLine("///////////////////////////////////////////////////////////");
+            }
+            else
+            {
+                log = File.AppendText(System.IO.Path.Combine(directorioDesctino + "/" + carpetaDestino, nombreArchivos));
+            }
+
+            log.WriteLine(mensaje);
+            log.WriteLine("///////////////////////////////////////////////////////////");
+            log.Close();
         }
     }
 }

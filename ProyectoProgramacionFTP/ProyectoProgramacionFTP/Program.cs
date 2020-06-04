@@ -9,53 +9,85 @@ using ConverXmlFiles;
 using System.Timers;
 using Timer = System.Timers.Timer;
 using ProyectoProgramacionFTP.SubProcesos;
-//using System.IO.File;
-//using System.IO.Directory;
-
+using ProyectoProgramacionFTP.Utilidades;
 namespace ConsoleApp1
 {
-
+    ///<summary>
+    ///Clase principal de la aplicación.
+    ///</summary>
+    ///<remarks>
+    ///Lee archivos de configuración y crea los hilos que ejecutan el resto del programa.
+    ///</remarks>
     public class SimpleFileCopy
     {
-        private static ConvertCsvToXml convertCsvTo;
-        private static AgruparXmlColas agruparXmlColas;
+        public static Utils utl = new Utils(); //Instancia clase de utilidades
+        private static ConvertCsvToXml convertCsvTo = new ConvertCsvToXml(); //Instancia clase que realiza el proceso de conversion de csv a xml
+        private static AgruparXmlColas agruparXmlColas = new AgruparXmlColas(); //Instancia clase de agrupamiento de colas asyncronico
+        private static LeerListaColasPrioridades leerListaColasPrioridades = new LeerListaColasPrioridades(); //Instancia clase de lectura de colas asyncronico
+
+        ///<summary>
+        ///Metodo inicia el proceso FTP
+        ///</summary>
+        ///<remarks>
+        ///Proceso continuo que realiza busqueda, conversion de archivos
+        ///</remarks>
         static void Main()
         {
-            agruparXmlColas = new AgruparXmlColas();
-            convertCsvTo = new ConvertCsvToXml();
             do
             {
                 Task.Run(async () =>
                 {
-                    Task<bool> prueba = agruparXmlColas.AgruparDocumentosXmlCanonicos();
+                    Task<bool> agrupa = agruparXmlColas.AgruparDocumentosXmlCanonicos();
+                    Task lee = leerListaColasPrioridades.LeerListasColas();
                     MoverArchivosFTP();
                 }).GetAwaiter().GetResult();
             } while (true);
         }
 
-        //Este Metodo lo que hace es mover los archivos 
+        ///<summary>
+        ///Metodo Dosificador
+        ///</summary>
+        ///<remarks>
+        ///Se encarga de mover los archivos de la carpeta origen a la carpeta CSV comun
+        ///</remarks>
         public static void MoverArchivosFTP()
         {
             string fullPath = @"..\..\";
-            string directorioDesctino = Path.GetFullPath(fullPath + "/Documentos/DocumentosCSV");
-            string directorioOrigen = Path.GetFullPath(fullPath + "/Documentos/GeneraDocumentosCSV");
+            string directorioDesctino = Path.GetFullPath(fullPath + "/Documentos/DocumentosCSV"); //Define la ruta de destino de los archivos
+            string directorioOrigen = Path.GetFullPath(fullPath + "/Documentos/GeneraDocumentosCSV"); //Define la ruta de origen de los archivos
 
             if (!System.IO.Directory.Exists(directorioDesctino))
             {
-                System.IO.Directory.CreateDirectory(System.IO.Path.Combine(directorioDesctino, ""));
+                System.IO.Directory.CreateDirectory(System.IO.Path.Combine(directorioDesctino, "")); //Crea la ruta de destino en caso de que no exista
             }
             if (System.IO.Directory.Exists(directorioOrigen))
             {
-                string[] directory = System.IO.Directory.GetFiles(@directorioOrigen);
+                string[] directory = System.IO.Directory.GetFiles(@directorioOrigen); //Obtiene los documentos  de la carpeta de origen
                 foreach (var files in directory)
                 {
-                    Thread.Sleep(2000);
-                    string nameFile = System.IO.Path.GetFileName(files);
-                    string fileDestino = (System.IO.Path.Combine(directorioDesctino, nameFile));
-                    System.IO.File.Move(files, fileDestino);
-                    Console.WriteLine("Transfiriendo archivos CSV a la carpeta Origen.................... " + nameFile);
-                    convertCsvTo.LeerArchivosCSV();
+                    Thread.Sleep(2000); //Realiza temporalizador de cada 2 segundos
+                    string nameFile = System.IO.Path.GetFileName(files); //Obtiene el nombre del fichero
+                    string fileDestino = (System.IO.Path.Combine(directorioDesctino, nameFile)); //Genera ruta del fichero en la ruta de destino
+                    if (!File.Exists(fileDestino)) //Valida si el fiechero existe en la carpeta comun
+                    {
+                        File.Move(files, fileDestino); //Mueve los fiecheros a la carpeta comun
+                        Console.WriteLine("Transfiriendo archivos CSV a la carpeta Origen.................... " + nameFile);
+                    }
+                    else
+                    {
+                        File.Delete(fileDestino); //Elimina el fichero existente en la carpeta comun
+                        File.Move(files, fileDestino); //Mueve los fiecheros a la carpeta comun
+                        string mensaje = "Archivo existente, archivo: " + fileDestino + " Proceso: Dosificador, se remplaza" + " Fecha proceso: " + DateTime.Today;
+                        utl.RegistroLog(mensaje, "FILE_EXIST", "file_exist.txt"); //Registra log de procesos
+                    }
+                    convertCsvTo.LeerArchivosCSV(); //Realiza llamado a la lectura del fichero csv
+
                 }
+            }
+            else
+            {
+                string mensaje = "Directorio NO existe, archivo: (" + directorioOrigen + ") Proceso: Dosificador" + " Fecha proceso: " + DateTime.Today;
+                utl.RegistroLog(mensaje, "FILE_EXIST", "file_exist.txt"); //Registra log de procesos
             }
 
         }
