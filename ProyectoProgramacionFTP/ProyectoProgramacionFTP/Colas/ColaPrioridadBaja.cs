@@ -20,6 +20,7 @@ namespace ProyectoProgramacionFTP.Colas
         {
             if (cabeza == null)
             {
+                Console.WriteLine("Cola Alta Baja");
                 return true;
             }
             else
@@ -52,9 +53,8 @@ namespace ProyectoProgramacionFTP.Colas
                 eliminarNodo = eliminarNodo.Siguiente;
                 cabeza = null;
                 cabeza = eliminarNodo;
+                salida.ProcesoSalidaDocumentosXml(datosXmlNodo, "Baja");
             }
-
-            salida.ProcesoSalidaDocumentosXml(datosXmlNodo, "Baja");
         }
 
         public void Imprimir() //Metodo que permite imprimir

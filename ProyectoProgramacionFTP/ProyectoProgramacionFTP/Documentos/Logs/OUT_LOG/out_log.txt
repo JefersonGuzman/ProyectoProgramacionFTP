@@ -1,0 +1,25 @@
+///////////////////////////////////////////////////////////
+	 DOCUMENTO LOG DE TRANSACCIONES PARAOUT_LOG 	
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLI_Cristian_Meza_perez.xml - Peso:(1177) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLGRA_Elena_Mira_Gonzales.xml - Peso:(1138) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLI_JUANA_ANTONIA_MORENO_PICHOTA.xml - Peso:(1193) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLI_JOAN_SEBASTIAN_TRILLERAS_VILLADA.xml - Peso:(1211) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLI_CARLA_ANDREA_SANCHEZ_VILLADA.xml - Peso:(1208) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLGRA_Manuel_Peres_mendoza.xml - Peso:(1144) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLCANMA_Yulieth Chaverra.xml - Peso:(1109) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLMAFI_Johana_Agudelo_Atehortua.xml - Peso:(1219) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLMAFI_jancarlos_lopez_salazar.xml - Peso:(1218) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLMAFI_andres_mendoza_perez.xml - Peso:(1241) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////
+Proceso completo, archivo: SOLCREES_Robert_Mendoza.xml - Peso:(1101) bytes - Fecha proceso: 3/06/2020 12:00:00 a. m.
+///////////////////////////////////////////////////////////

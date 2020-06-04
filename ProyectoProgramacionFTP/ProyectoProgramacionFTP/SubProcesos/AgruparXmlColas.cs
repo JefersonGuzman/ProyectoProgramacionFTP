@@ -53,11 +53,11 @@ namespace ProyectoProgramacionFTP.SubProcesos
             }
             else if (cola.Equals("Media"))
             {
-                ColaPrioridadAlta.Cola.AgregarElementosAlInicio(datos);
+                ColaPrioridadMedia.Cola.AgregarElementosAlInicio(datos);
             }
-            else
+            else if (cola.Equals("Baja"))
             {
-                ColaPrioridadAlta.Cola.AgregarElementosAlInicio(datos);
+                ColaPrioridadBaja.Cola.AgregarElementosAlInicio(datos);
             }
             
         }

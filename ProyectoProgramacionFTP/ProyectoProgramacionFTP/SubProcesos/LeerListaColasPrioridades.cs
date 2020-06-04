@@ -25,18 +25,18 @@ namespace ProyectoProgramacionFTP.SubProcesos
         {
             if (ColaPrioridadAlta.Cola.ListaVacia() != true) //Valida si la lista se encuentra vacia
             {
+                Console.WriteLine("Entro Alta");
                 ColaPrioridadAlta.Cola.ExportarDocumento();
-                LeerListasColas();
             }
             else if (ColaPrioridadMedia.Cola.ListaVacia() != true) //Valida si la lista se encuentra vacia
             {
+                Console.WriteLine("Entro Media");
                 ColaPrioridadMedia.Cola.ExportarDocumento();
-                LeerListasColas();
             }
-            else
+            else if (ColaPrioridadBaja.Cola.ListaVacia() != true)
             {
+                Console.WriteLine("Entro Baja");
                 ColaPrioridadBaja.Cola.ExportarDocumento();
-                LeerListasColas();
             }
         }
 
