@@ -37,11 +37,13 @@ namespace ConsoleApp1
             {
                 Task.Run(async () =>
                 {
-                    Task<bool> agrupa = agruparXmlColas.AgruparDocumentosXmlCanonicos();
+                    Task agrupa = agruparXmlColas.AgruparDocumentosXmlCanonicos();
                     Task lee = leerListaColasPrioridades.LeerListasColas();
                     MoverArchivosFTP();
                 }).GetAwaiter().GetResult();
             } while (true);
+
+
         }
 
         ///<summary>
@@ -63,23 +65,24 @@ namespace ConsoleApp1
             if (System.IO.Directory.Exists(directorioOrigen))
             {
                 DirectoryInfo directory = new DirectoryInfo(@directorioOrigen);
-                FileInfo[] file = directory.GetFiles().OrderBy(p => p.CreationTime).ToArray();
-                foreach (var files in file)
+                FileInfo file = directory.GetFiles().OrderByDescending(p => p.CreationTime).FirstOrDefault();
+                if (directory.GetFiles().Length > 0)
                 {
                     Thread.Sleep(2000); //Realiza temporalizador de cada 2 segundos
-                    string nameFile = files.Name; //Obtiene el nombre del fichero
+                    string nameFile = file.Name.ToString();
                     string fileDestino = (System.IO.Path.Combine(directorioDesctino, nameFile)); //Genera ruta del fichero en la ruta de destino
                     if (!File.Exists(fileDestino)) //Valida si el fiechero existe en la carpeta comun
                     {
-                        File.Move(files.FullName, fileDestino); //Mueve los fiecheros a la carpeta comun
+                        File.Move(file.FullName, fileDestino); //Mueve los fiecheros a la carpeta comun
                         Console.WriteLine("Transfiriendo archivos CSV a la carpeta Origen.................... " + nameFile);
                     }
                     else
                     {
                         File.Delete(fileDestino); //Elimina el fichero existente en la carpeta comun
-                        File.Move(files.FullName, fileDestino); //Mueve los fiecheros a la carpeta comun
+                        File.Move(file.FullName, fileDestino); //Mueve los fiecheros a la carpeta comun
                         string mensaje = "Archivo existente, archivo: " + fileDestino + " Proceso: Dosificador, se remplaza" + " Fecha proceso: " + DateTime.Today;
                         utl.RegistroLog(mensaje, "FILE_EXIST", "file_exist.txt"); //Registra log de procesos
+                        Console.WriteLine("Actualizando archivos CSV a la carpeta Origen.................... " + nameFile);
                     }
                     convertCsvTo.LeerArchivosCSV(); //Realiza llamado a la lectura del fichero csv
                 }

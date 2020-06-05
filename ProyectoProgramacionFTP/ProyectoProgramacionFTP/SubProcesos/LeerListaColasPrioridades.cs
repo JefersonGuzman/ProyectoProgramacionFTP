@@ -1,6 +1,7 @@
 ﻿using ProyectoProgramacionFTP.Colas;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,20 +26,41 @@ namespace ProyectoProgramacionFTP.SubProcesos
         {
             if (ColaPrioridadAlta.Cola.ListaVacia() != true) //Valida si la lista se encuentra vacia
             {
-                Console.WriteLine("Entro Alta");
-                ColaPrioridadAlta.Cola.ExportarDocumento();
+                if (ColaPrioridadAlta.Cola.ValidaFicherosCola() == true)
+                {
+                    ColaPrioridadAlta.Cola.ExportarDocumento();
+                }
+                // LeerListasColas();
             }
-            else if (ColaPrioridadMedia.Cola.ListaVacia() != true) //Valida si la lista se encuentra vacia
+            else
             {
-                Console.WriteLine("Entro Media");
-                ColaPrioridadMedia.Cola.ExportarDocumento();
             }
-            else if (ColaPrioridadBaja.Cola.ListaVacia() != true)
+
+            if (ColaPrioridadMedia.Cola.ListaVacia() != true) //Valida si la lista se encuentra vacia
             {
-                Console.WriteLine("Entro Baja");
-                ColaPrioridadBaja.Cola.ExportarDocumento();
+                if (ColaPrioridadMedia.Cola.ValidaFicherosCola() == true)
+                {
+                    ColaPrioridadMedia.Cola.ExportarDocumento();
+                }
+                //LeerListasColas();
+            }
+            else
+            {
+            }
+            if (ColaPrioridadBaja.Cola.ListaVacia() != true)
+            {
+                if (ColaPrioridadBaja.Cola.ValidaFicherosCola() == true)
+                {
+                    ColaPrioridadBaja.Cola.ExportarDocumento();
+                }
+                // LeerListasColas();
+            }
+            else
+            {
             }
         }
+
+        
 
         
     }

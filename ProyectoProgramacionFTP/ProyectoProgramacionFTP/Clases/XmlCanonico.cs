@@ -12,7 +12,7 @@ namespace ProyectoProgramacionFTP.Clases
             , primer_nombre, segundo_nombre, primer_apellido, segundo_apellido, estado_civil, pais
             , departamento, municipio, fecha_nacimiento, barrio, telefono, celular, correo, fecha_registro
             , genero, direccion, progama, semestre, asunto, descripcion, estado, tipo_transaccion, periodo, creditos, codigo, asignatura
-            , grupo, franja, ceremonia, ventanilla, usuario, contraseña,sede;
+            , grupo, franja, ceremonia, ventanilla, usuario, contraseña,sede,nombre_archivo;
 
         public string Type_doc { get => type_doc; set => type_doc = value; }
         public string Consecutivo_id { get => consecutivo_id; set => consecutivo_id = value; }
@@ -52,6 +52,7 @@ namespace ProyectoProgramacionFTP.Clases
         public string Usuario { get => usuario; set => usuario = value; }
         public string Contraseña { get => contraseña; set => contraseña = value; }
         public string Sede { get => sede; set => sede = value; }
+        public string Nombre_archivo { get => nombre_archivo; set => nombre_archivo = value; }
 
         public override string ToString()
         {
@@ -64,7 +65,7 @@ namespace ProyectoProgramacionFTP.Clases
                 + " semestre: " + this.Semestre + " asunto: " + this.Asunto + " descripcion: " + this.Descripcion + " estado: " + this.Estado + " tipo_transaccion: " + this.Tipo_transaccion
                 + " periodo: " + this.Periodo + " creditos: " + this.Creditos + " codigo: " + this.Codigo + " asignatura: " + this.Asignatura + " grupo: " + this.Grupo
                 + " franja: " + this.Franja + " ceremonia: " + this.Ceremonia + " ventanilla: " + this.Ventanilla + " usuario: " + this.Usuario 
-                + " contraseña: " + this.Contraseña + " sede: " + this.Sede;
+                + " contraseña: " + this.Contraseña + " sede: " + this.Sede + "nombre_archivo" + this.Nombre_archivo;
         }
     }
 }

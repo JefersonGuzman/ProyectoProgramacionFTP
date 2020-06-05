@@ -4,9 +4,10 @@
     "\\ProyectoProgramacionFTP",
     "\\ProyectoProgramacionFTP\\ConverXmlFiles",
     "\\ProyectoProgramacionFTP\\ProyectoProgramacionFTP",
-    "\\ProyectoProgramacionFTP\\ProyectoProgramacionFTP\\Documentos",
-    "\\ProyectoProgramacionFTP\\ProyectoProgramacionFTP\\Documentos\\DocumentosXml"
+    "\\ProyectoProgramacionFTP\\ProyectoProgramacionFTP\\Documentos\\DocumentosXml",
+    "\\ProyectoProgramacionFTP\\ProyectoProgramacionFTP\\obj",
+    "\\ProyectoProgramacionFTP\\ProyectoProgramacionFTP\\obj\\Debug"
   ],
-  "SelectedNode": "\\ProyectoProgramacionFTP\\ProyectoProgramacionFTP\\Documentos\\DocumentosXml\\SOLI_Joan_Sebastian_Trilleras_Villada.xml",
+  "SelectedNode": "\\ProyectoProgramacionFTP\\ProyectoProgramacionFTP\\obj\\Debug\\ProyectoProgramacionFTP.csprojAssemblyReference.cache",
   "PreviewInSolutionExplorer": false
 }

@@ -576,10 +576,10 @@ namespace ProyectoProgramacionFTP.Utilidades
             return nombreCarpeta;
         }
 
-        public XmlCanonico GenerarObjetoXmlCanonico(string[] headers, string[] body)
+        public XmlCanonico GenerarObjetoXmlCanonico(string[] headers, string[] body, string nameFile)
         {
             int cantHeaders = headers.Length;
-            int[] indice = new int[38];
+            int[] indice = new int[39];
             XmlCanonico xmlObjeto = new XmlCanonico();
             for (int i = 0; i < cantHeaders; i++)
             {
@@ -1073,6 +1073,19 @@ namespace ProyectoProgramacionFTP.Utilidades
                 else
                 {
                     if (indice[37] == 0)
+                    {
+                        xmlObjeto.Sede = "";
+                    }
+                }
+
+                if (nameFile != "")
+                {
+                    xmlObjeto.Nombre_archivo = nameFile;
+                    indice[38] = 1;
+                }
+                else
+                {
+                    if (indice[38] == 0)
                     {
                         xmlObjeto.Sede = "";
                     }
